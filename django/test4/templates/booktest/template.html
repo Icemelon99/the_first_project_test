@@ -1,0 +1,6 @@
+{% extends 'booktest/base.html' %}
+{% block b1 %}
+这是一个重写b1
+{{ content|safe }}
+{{ conte|default:'<h1>nihao</h1>' }}
+{% endblock b1 %}

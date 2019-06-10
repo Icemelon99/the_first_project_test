@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>主页</title>
+</head>
+<body>
+<!--
+	显示两个跳转，修改密码和个人信息
+-->
+<a href="/main/personal_msg/">
+	{% csrf_token %}
+	<input type="button" value="个人信息"><br />
+</a>
+<a href="/main/change_psw/">
+	{% csrf_token %}
+	<input type="button" value="修改密码"><br />
+</a>
+<a href="/main/logout/">
+	{% csrf_token %}
+	<input type="button" value="退出登录"><br />
+</a>
+</body>
+</html>

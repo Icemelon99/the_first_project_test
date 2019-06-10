@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+{% load filters %}
+<head>
+	<meta charset="utf-8">
+	<title>模板标签与过滤器</title>
+</head>
+<body>
+标签测试<br />
+<ul>
+{% for i in test2 %}
+<li>
+	{% if i < 3 %}
+	{{ i|mod }}
+	{% else %}
+	{{ i }}
+	{% endif%}
+</li>
+{% endfor %}
+</ul>
+{{ test3.a|capfirst }}
+{{ test2|length }}
+</body>
+</html>

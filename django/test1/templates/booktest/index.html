@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>模板文件</title>
+</head>
+<body>
+<h1>这是一个标题</h1>
+这是一个index.html内容测试<br />
+{{ name }}<br />
+
+这是一个生成器/列表内容测试<br />
+{{ list }}<br />
+
+这是一个for循环测试<br />
+<ol>
+	{% for i in list %}
+	<li>{{ i }}</li>
+	{% endfor %}
+</ol>
+
+
+</body>
+</html>
