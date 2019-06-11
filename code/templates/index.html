@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>index</title>
+</head>
+<body>
+<form method="post">
+	{{ form.csrf_token }}
+	{{ form.author_name.label }}
+	<p>{{ form.author_name }}</p>
+	{{ form.book_name.label }}
+	<p>{{ form.book_name }}</p>
+	{{ form.submit }}
+</form>
+<hr>
+	<ul>
+		{% for author in authors %}
+		<li>author: {{ author.name }}</li>
+			<ul>
+				{% for book in author.books %}
+				<li>book: {{ book.name }}
+				<a href="javascript:;" book_id='{{ book.id }}' onclick="deleteBook();">delete</a></li>
+				<a href="">get_delete</a>
+				{% endfor %}
+			</ul>
+		{% endfor %}
+	</ul>
+	<script src="/static/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$('a').click(function deleteBook(){
+			var data = {
+				'book_id':$(this).attr('book_id')
+			};
+			var req_json = JSON.stringify(data);
+			$.ajax({
+				url: '/delete_book', 
+				type: 'post', 
+				data: req_json,
+				contentType: 'application/json', 
+				dataType: 'json', // 指名后端返回的数据格式
+				success: function(resp){
+					if(resp.code==0){
+						alert('OK')
+						location.href = '/index';
+					}
+				}
+			})
+		})
+	</script>
+</body>
+</html>
